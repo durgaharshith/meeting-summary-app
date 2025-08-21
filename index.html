@@ -13,7 +13,7 @@
 
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #9CAFAA 0%, #D6DAC8 100%);
             min-height: 100vh;
             padding: 20px;
         }
@@ -28,7 +28,7 @@
         }
 
         .header {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #9CAFAA 0%, #D6DAC8 100%);
             color: white;
             padding: 30px;
             text-align: center;
@@ -66,7 +66,7 @@
         }
 
         .step-number {
-            background: #667eea;
+            background: #D6A99D;
             color: white;
             width: 40px;
             height: 40px;
@@ -95,19 +95,19 @@
         }
 
         .upload-area:hover {
-            border-color: #667eea;
-            background: #f0f4ff;
+            border-color: #D6A99D;
+            background: #FBF3D5;
         }
 
         .upload-area.dragover {
-            border-color: #667eea;
-            background: #f0f4ff;
+            border-color: #D6A99D;
+            background: #FBF3D5;
             transform: scale(1.02);
         }
 
         .upload-icon {
             font-size: 3em;
-            color: #667eea;
+            color: #D6A99D;
             margin-bottom: 15px;
         }
 
@@ -116,7 +116,7 @@
         }
 
         .btn {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #D6A99D 0%, #9CAFAA 100%);
             color: white;
             border: none;
             padding: 12px 30px;
@@ -165,7 +165,7 @@
         .input-group input:focus,
         .input-group textarea:focus {
             outline: none;
-            border-color: #667eea;
+            border-color: #D6A99D;
         }
 
         .textarea-large {
@@ -182,12 +182,12 @@
             display: none;
             text-align: center;
             padding: 20px;
-            color: #667eea;
+            color: #9CAFAA;
         }
 
         .spinner {
             border: 3px solid #f3f3f3;
-            border-top: 3px solid #667eea;
+            border-top: 3px solid #D6A99D;
             border-radius: 50%;
             width: 40px;
             height: 40px;
@@ -201,8 +201,8 @@
         }
 
         .success-message {
-            background: #d4edda;
-            color: #155724;
+            background: #D6DAC8;
+            color: #2d5016;
             padding: 15px;
             border-radius: 8px;
             margin: 15px 0;
@@ -219,7 +219,7 @@
         }
 
         .file-info {
-            background: #e7f3ff;
+            background: #FBF3D5;
             padding: 15px;
             border-radius: 8px;
             margin: 15px 0;
@@ -238,7 +238,7 @@
         }
 
         .recipient-tag {
-            background: #667eea;
+            background: #D6A99D;
             color: white;
             padding: 5px 12px;
             border-radius: 20px;
@@ -571,8 +571,11 @@
 
                 if (data.success) {
                     showSuccess('shareSuccess', `✅ Summary sent successfully to ${data.recipients} recipient(s)!`);
-                    // Clear the form
+                    // Clear the form and reset after a delay
                     document.getElementById('recipientInput').value = '';
+                    setTimeout(() => {
+                        resetToDefault();
+                    }, 2000); // Reset after 2 seconds
                 } else {
                     showError('shareError', data.error || 'Failed to send emails');
                 }
